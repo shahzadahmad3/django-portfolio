@@ -6,8 +6,10 @@
 <body>
     <h1>{{ post.title }}</h1>
     <p>{{ post.body }}</p>
-    <p><strong>Author:</strong> {{ post.author.name }}</p>
-    <p><strong>Categories:</strong> {% for cat in post.categories.all %} {{ cat.name }} {% endfor %}</p>
+    <li>
+        <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>by {{ post.author.name }}
+        <small>(Updated: {{ post.updated_at|date:"Y-m-d" }})</small>
+    </li>
     <a href="{% url 'post_list' %}">Back to all posts</a>
 </body>
 </html>

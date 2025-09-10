@@ -17,7 +17,8 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
-    published_at = models.DateTimeField(auto_now_add=True)
+    published_at = models.DateTimeField(auto_now_add=True)  # first publish time
+    updated_at = models.DateTimeField(auto_now=True)   
 
     #Relationships
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='posts')
