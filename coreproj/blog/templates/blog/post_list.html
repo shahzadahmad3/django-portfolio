@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Blog - All Posts</title>
-</head>
-<body>
-    <h1>All Posts</h1>
-    <a href="{% url 'post_create' %}">+ New Post</a>
-    <ul>
-        {% for post in posts %}
-            <li>
-                <a href="{% url 'post_detail' post.pk %}">
-                    {{ post.title }}
-                </a> by {{ post.author.name }} ({{ post.published_at|date:"Y-m-d" }})
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1>All Posts</h1>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+            by {{ post.author.name }} on {{ post.created_at|date:"F j, Y" }}
+            (Last updated: {{ post.updated_at|date:"F j, Y, g:i A" }})
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

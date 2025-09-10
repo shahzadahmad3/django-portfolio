@@ -22,3 +22,4 @@ class PostCreateView(CreateView):
     form_class = PostForm
     template_name = 'blog/post_form.html'
     success_url = reverse_lazy('post_list')
+    login_url = 'login'  # Redirect to login if not authenticated

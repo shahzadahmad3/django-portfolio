@@ -1,6 +1,6 @@
 from .models import Post
 from django.urls import path, include
-from .views import home_view, PostListView, PostDetailView, PostCreateView
+from .views import PostListView, PostDetailView, PostCreateView
 
 urlpatterns = [
     # path('', home_view, name='home'),
