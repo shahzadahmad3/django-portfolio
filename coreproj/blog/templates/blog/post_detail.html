@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.body }}</p>
+    <p><strong>Author:</strong> {{ post.author.name }}</p>
+    <p><strong>Categories:</strong> {% for cat in post.categories.all %} {{ cat.name }} {% endfor %}</p>
+    <a href="{% url 'post_list' %}">Back to all posts</a>
+</body>
+</html>
